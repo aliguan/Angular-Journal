@@ -2,27 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { JournalEntriesService } from './services/journal-entries.service';
 
 import { AppComponent } from './app.component';
 import { EntriesListComponent } from './entries-list/entries-list.component';
+import { SingleEntryComponent } from './single-entry/single-entry.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home',  component: EntriesListComponent}
+  { path: 'home',  component: EntriesListComponent },
+  { path: 'entry/:id', component: SingleEntryComponent }
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntriesListComponent
+    EntriesListComponent,
+    SingleEntryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [JournalEntriesService],
   bootstrap: [AppComponent]
