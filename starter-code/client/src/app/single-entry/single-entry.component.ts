@@ -17,20 +17,19 @@ export class SingleEntryComponent implements OnInit {
   constructor(private journalservice: JournalEntriesService,
   private route: ActivatedRoute) { }
 
+  getAnEntry() {
+    this.journalservice.getSingleEntry(this.entryId)
+    .subscribe( (res) => {
+       res = this.anEntry;
+       console.log(this.anEntry);
+     });
+  }
+
   ngOnInit() {
     this.route.params
       .subscribe( (params) => this.entryId = params['id'] );
 
-    this.getAnEntry()
+    this.getAnEntry();
   }
-
-  getAnEntry() {
-    this.journalservice.getSingleEntry(this.entryId)
-    .subscribe((entry) => {
-       this.anEntry = entry;
-       console.log(entry);
-     });
-  }
-
 
 }
