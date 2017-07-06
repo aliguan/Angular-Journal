@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { JournalEntriesService } from './services/journal-entries.service';
 

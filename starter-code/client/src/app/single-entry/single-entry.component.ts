@@ -10,20 +10,26 @@
   styleUrls: ['./single-entry.component.css']
 })
 export class SingleEntryComponent implements OnInit {
-  entryId: Number;
-  anEntry: Object;
+
+  entryId: string;
+  anEntry: any;
+
   constructor(private journalservice: JournalEntriesService,
   private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params
-      .subscribe( params => { this.entryId = Number(params['id']) });
+      .subscribe( (params) => this.entryId = params['id'] );
 
-     this.getAnEntry();
+    this.getAnEntry()
   }
 
   getAnEntry() {
-    this.anEntry = this.journalservice.getSingleEntry(this.entryId);
+    this.journalservice.getSingleEntry(this.entryId)
+    .subscribe((entry) => {
+       this.anEntry = entry;
+       console.log(entry);
+     });
   }
 
 
