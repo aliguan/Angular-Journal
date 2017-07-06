@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let entry of entries">
-      <a [routerLink]="['entry', entry.id]"><h2>{{ entry.title }}</h2></a>
+      <a [routerLink]="['/entry', entry._id]"><h2>{{ entry.title }}</h2></a>
       <small>{{ entry.date }}</small>
   </li>
 </ul>

@@ -11,8 +11,9 @@ import { EntriesListComponent } from './entries-list/entries-list.component';
 import { SingleEntryComponent } from './single-entry/single-entry.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   { path: 'home',  component: EntriesListComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'entry/:id', component: SingleEntryComponent }
 ];
 
