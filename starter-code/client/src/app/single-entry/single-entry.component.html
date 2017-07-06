@@ -1,1 +1,4 @@
-{{ anEntry?.title }}
+<div *ngIf="anEntry" >
+  <h1>{{ anEntry.title }}</h1>
+  <h3>{{ anEntry.content }}</h3>
+</div>

@@ -1,6 +1,6 @@
- import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
- import { ActivatedRoute } from '@angular/router';
+ import { ActivatedRoute, Router } from '@angular/router';
 
  import { JournalEntriesService } from '../services/journal-entries.service';
 
@@ -15,21 +15,19 @@ export class SingleEntryComponent implements OnInit {
   anEntry: any;
 
   constructor(private journalservice: JournalEntriesService,
-  private route: ActivatedRoute) { }
+  private route: ActivatedRoute ) {
+
+ }
+
+  ngOnInit() {
+    this.route.params.subscribe( (params) => this.entryId = params['id'] );
+
+    this.getAnEntry();
+  }
 
   getAnEntry() {
     this.journalservice.getSingleEntry(this.entryId)
-    .subscribe( (res) => {
-       res = this.anEntry;
-       console.log(this.anEntry);
-     });
-  }
-
-  ngOnInit() {
-    this.route.params
-      .subscribe( (params) => this.entryId = params['id'] );
-
-    this.getAnEntry();
+      .subscribe( (entry) => this.anEntry = entry );
   }
 
 }

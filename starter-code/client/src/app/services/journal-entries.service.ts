@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class JournalEntriesService {
@@ -16,8 +17,8 @@ export class JournalEntriesService {
   }
 
   getSingleEntry(id) {
-    return this.http.get(`http://localhost:3000/api/journal-entries/${id}`)
-    .map( (res) => { return res.json() } );
+  return this.http.get(`http://localhost:3000/api/journal-entries/${id}`)
+    .map((res) => res.json() );
   }
 
 }
