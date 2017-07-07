@@ -1,0 +1,9 @@
+<form (ngSubmit)="submitForm(entryForm)" #entryForm>
+  <label id="food-name">Title: </label>
+  <input name="newEntryTitle"  type="text" [(ngModel)]="newEntryTitle">
+<br>
+  <label>Content: </label>
+  <input name="newEntryContent" type="text" [(ngModel)]="newEntryContent">
+<br>
+  <button class="btn btn-primary" type="submit">Add Entry</button>
+</form>

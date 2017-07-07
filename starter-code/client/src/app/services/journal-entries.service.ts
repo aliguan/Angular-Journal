@@ -9,11 +9,15 @@ import 'rxjs/add/operator/toPromise';
 export class JournalEntriesService {
 
 
-  constructor(private http: Http) { }
+  constructor(private http: Http ) { }
 
   getEntries() {
     return this.http.get('http://localhost:3000/api/journal-entries')
     .map((res) => res.json());
+  }
+
+  createEntry(entry) {
+     this.http.post('http://localhost:3000/api/journal-entries', entry).subscribe();
   }
 
   getSingleEntry(id) {

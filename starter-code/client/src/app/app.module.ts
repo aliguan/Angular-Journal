@@ -10,6 +10,7 @@ import { JournalEntriesService } from './services/journal-entries.service';
 import { AppComponent } from './app.component';
 import { EntriesListComponent } from './entries-list/entries-list.component';
 import { SingleEntryComponent } from './single-entry/single-entry.component';
+import { CreateEntryComponent } from './create-entry/create-entry.component';
 
 const routes: Routes = [
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     EntriesListComponent,
-    SingleEntryComponent
+    SingleEntryComponent,
+    CreateEntryComponent
   ],
   imports: [
     BrowserModule,
